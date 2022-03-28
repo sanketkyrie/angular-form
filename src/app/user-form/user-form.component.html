@@ -1,0 +1,65 @@
+<div class="box">
+    <div class="box_header">
+        Create an user account 
+    </div>
+    <form class="box_form" [formGroup] = "myForm">
+        <!-- Value : {{myForm.value|json}} -->
+        <div class="box_input">
+            <mat-form-field appearance = "outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="first name" formControlName = "firstName">
+                <mat-error>Invalid First Name</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance = "outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="last name" formControlName = "lastName">
+                <mat-error>Invalid Last Name</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="box_input">
+            <mat-form-field appearance = "outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="email" formControlName = "email">
+                <mat-error>Invalid Email</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="box_input">
+            <mat-form-field appearance = "outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="phone number" formControlName = "phoneNo">
+                <mat-error>Invalid Phone Number</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="box_input">
+            <mat-radio-group aria-label="Select an option" formControlName = "gender">
+                <mat-radio-button [value]="option" *ngFor = "let option of options">{{option}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="box_input">
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName = "date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Invalid Date</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="box_input">
+            <mat-form-field>
+                <mat-label>Select a department</mat-label>
+                <mat-select formControlName = "depart">
+                  <mat-option *ngFor="let dept of depts" [value]="dept">
+                    {{dept}}
+                  </mat-option>
+                </mat-select>
+                <mat-error>Invalid Department</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="box_input">
+            <mat-checkbox class="example-margin" formControlName = "agree">I agree with terms and conditions</mat-checkbox>
+        </div>
+        <div class="box_input_btn">
+            <button mat-raised-button [disabled] = "myForm.invalid" (click)="onSubmit()"  color="primary">Submit</button>
+        </div>
+    </form>
+</div>

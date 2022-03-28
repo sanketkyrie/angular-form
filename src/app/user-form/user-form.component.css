@@ -1,0 +1,32 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    border: 0.8px solid lightgray;
+    margin: 2%;
+    padding: 5%;
+}
+.box_form{
+    padding: 10px;
+}
+.box_header{
+    font-size: 25px;
+    font-weight: 400;
+    color: #232323;
+}
+.box_input{
+    display: flex;
+    align-items: center;
+}
+.box_input_btn{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+::ng-deep mat-form-field{
+    width: 100%;
+    margin: 5px;
+}
+::ng-deep mat-radio-button{
+    margin: 5px;
+}
